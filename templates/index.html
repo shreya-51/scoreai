@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Audio Editor</title>
+  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="static/styles.css">
+  
+  <script src="https://unpkg.com/wavesurfer.js@7/dist/wavesurfer.min.js"></script>
+  
+  {% if filename %}
+    <script>
+      window.audioFileUrl = "{{ url_for('static', filename='uploads/' + filename) }}";
+    </script>
+  {% endif %}
+
+  <script src="static/script.js"></script>
+
+</head>
+
+<body>
+
+  <header>
+    <div class="row">
+      <div class="logo-row">
+        <img src="static/assets/logo_high_res.png" alt="logo" class="logo">
+      </div>
+    </div>
+  </header>
+
+  <div class="container text-center">
+  
+    <form method="post" enctype="multipart/form-data">
+      {{ form.hidden_tag() }}
+
+      <div class="form-group">
+        <input type="file" name="file" required>
+      </div>
+      {{ form.submit(class_="btn btn-primary") }}
+    </form>
+
+    {% if filename %}
+    
+      <br></br>
+      <div id="waveform"></div>
+      <br></br>
+      
+      <div><button id="playPauseButton">Play</button></div>
+      <br></br>
+      <div><input type="text" id="user-input" placeholder="How would you like to edit your track?"></dif>
+      
+    {% endif %}
+
+  </div>
+
+</body>
+</html>

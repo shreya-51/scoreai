@@ -1,0 +1,142 @@
+/* Change default button styles */
+button {
+  background-color: #EA4C89;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+button:hover,
+button:focus {
+  background-color: #F082AC;
+}
+
+/* Change Bootstrap button classes */  
+.btn {
+  background-color: pink;
+  border-color: pink;
+  color: black;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: #F082AC;
+}
+
+.btn-primary {
+  background-color: pink;
+  border-color: pink;
+  color: black; 
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #F082AC;
+}
+
+/* Change form submit button */
+input[type="submit"] {
+  background-color: pink;
+  border-color: pink;
+  color: black;
+}
+
+input[type="file"] {
+  /* Hide default file upload button */
+  appearance: none;
+  
+  /* Hide default file text */  
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.text-center {
+  text-align: center;
+}
+
+#user-input {
+  /* Styles */
+  border: none;
+  border-bottom: 2px solid pink;
+  padding: 10px;
+  font-size: 16px;
+  width: 300px;
+  text-align: center;
+}
+
+#user-input::placeholder {
+  /* Styles for placeholder text */
+  color: #aaa;
+  font-style: italic; 
+  text-align: center;
+}
+
+#user-input:focus {
+  /* Styles when focused */
+  outline: none;
+  border-bottom: 2px solid #EA4C89;
+}
+
+body {
+    width: 90%;
+    margin: 0 auto;
+}
+
+header {
+    margin-top: 20px;
+    padding-bottom: 50px;
+}
+
+.logo-row {
+    width: 250px;
+    margin: 0 auto;
+}
+
+.logo {
+    width: 100%;
+    height: 150px;
+    text-align: center;
+    animation: fadeIn 1s ease-in;
+}
+
+label {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+label:hover {
+  background-color: #0062cc;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1; 
+  }
+}
