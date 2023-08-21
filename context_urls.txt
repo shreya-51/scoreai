@@ -1,0 +1,15 @@
+https://wavesurfer-js.org/docs/classes/wavesurfer.default
+http://alemangui.github.io/pizzicato/#sound-from-waveform
+https://cdnjs.cloudflare.com/ajax/libs/pizzicato/0.6.1/Pizzicato.js
+https://codepen.io/gregh/post/start-using-the-web-audio-with-pizzicato-js
+https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API
+https://github.com/alemangui/pizzicato/blob/master/tests/Effects.test.js
+https://wavesurfer-js.org/examples/?basic.js
+https://wavesurfer-js.org/examples/?all-options.js
+https://wavesurfer-js.org/examples/?events.js
+https://wavesurfer-js.org/examples/?zoom.js
+https://wavesurfer-js.org/examples/?webaudio.js
+https://wavesurfer-js.org/examples/?react.js
+https://wavesurfer-js.org/examples/?predecoded.js
+https://wavesurfer-js.org/examples/?video.js
+https://wavesurfer-js.org/examples/?speed.js

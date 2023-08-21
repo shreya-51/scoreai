@@ -2,19 +2,29 @@
 
 import pickle
 
-def load_embeddings(sotre_name, path):
-    with open(f"{path}/faiss_{sotre_name}.pkl", "rb") as f:
-        VectorStore = pickle.load(f)
-    return VectorStore
-
 # generate the query for the llm
-def get_query(user_input):
-    query = f'''You are a sound engineer. You are also a coding bot that only generates executable code. You have been given an audio file in the form of a wavesurfer object.
+def get_query(user_input, error, error_value=None):
+    print('Error value: ', error_value)
+    error_message = f'The below prompt was sent to you and this is the outputted error {error_value}. Try again, taking this error into consideration. Previous prompt: '
+    
+    query = f'''    
+            You are a sound engineer. 
+            You are also a coding bot that only generates executable code. 
+            You have been given an audio file in the form of a wavesurfer.js object.
             The user has asked you to {user_input}.
-            Write JavaScript code to do what the user has asked.'''
+            Think step by step.''
             
-    add_query = ''' Here is some code that might help:
-                var wavesurfer = null;
+            Write JavaScript code to do what the user has asked. Check to make sure that the function you choose is actually part of the API you are using.
+            Also, check that your code has: 1. a wavesurfer object and 2. a method that actually exists in the wavesurfer.js library.
+            
+            If the user asks to increase or decrease something or if you are adjusting a value, make sure you get the current value of that something.
+            
+            '''
+            
+    add_query = '''
+            This is the code that sets up the wavesurfer object that you want to use:
+            
+            var wavesurfer = null;
 
             // sets up the waveform player
             function setupAudioPlayer() {
@@ -39,35 +49,13 @@ def get_query(user_input):
                 }
             });
 
-            }
-
-            /* action functions */
-
-            function changeVolume(amount) {
-            // change volume here
-            const currentVolume = wavesurfer.getVolume();
-            const newVolume = currentVolume + amount;
-            const clampedVolume = Math.max(0, Math.min(1, newVolume));
-            wavesurfer.setVolume(clampedVolume);
-            console.log('Old volume: ', currentVolume);
-            console.log('New volume: ', clampedVolume);
-            }
-
-            function changeSpeed(amount) {
-            // change speed here
-            const currentSpeed = wavesurfer.getPlaybackRate();
-            const newSpeed = currentSpeed + amount;
-            const clampedSpeed = Math.max(0.5, Math.min(4, newSpeed));
-            wavesurfer.setPlaybackRate(clampedSpeed);
-            console.log('Old speed: ', currentSpeed);
-            console.log('New speed: ', clampedSpeed);
-            }
-            
+            }            
             Make sure to only provide full code that can be immediately executed.'''
     
     query = query + add_query
-              
-    return query
+    
+    if error: return error_message + query
+    else: return query
 
 if __name__ == '__main__':
     print('Running handle_user_input.py...')
