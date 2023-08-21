@@ -53,6 +53,10 @@ def setup_retriever():
     # chain to answer questions 
     qa_chain = RetrievalQA.from_chain_type(llm=OpenAI(temperature=0.2), chain_type="stuff", retriever=retriever, return_source_documents=True)
     
+    # also create an uploads folder to avoid errors for now
+    if not os.path.exists(app.config['UPLOAD_FOLDER']):
+        os.makedirs(app.config['UPLOAD_FOLDER'])
+    
     return qa_chain
 
 llm = setup_retriever() # set up llm once
