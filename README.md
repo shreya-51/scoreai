@@ -21,3 +21,4 @@ Detailed instructions coming soon!
 ## Currently working on:
  - More advanced editing (i.e. effects, cropping, etc.)
  - Multi-track editing
+ - Conversation with AI to allow more specific changes when the text command is too vauge
